@@ -1,0 +1,68 @@
+.flex-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: 650px;
+}
+div {
+
+}
+.form{
+    width: 400px;
+    text-align: center;
+    background-color: #eeeeee;
+}
+.desc {
+    width: 660px;
+    text-align: left;
+}
+h1 {
+    font-size: 45px;
+    font-family: monospace;
+}
+h2 {
+    font-size: 30px;
+    font-family: monospace;
+}
+p {
+    font-size: 17px;
+    font-family: "Courier New";
+}
+ol {
+    font-size: 17px;
+    line-height: 25px;
+    list-style-type: circle;
+    font-family: "Courier New";
+}
+button {
+    width: 188px;
+    height: 40px;
+}
+img {
+    width: 150px;
+    padding-bottom: 15px;
+}
+.cardRules, .cardRulesLabel {
+    width: 99.5%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 17px;
+}
+.formLabel {
+    font-size: 20px;
+    margin-right: 100px;
+}
+input {
+    padding: 3px;
+    margin-top: 3px;
+    margin-bottom: 15px;
+    font-size: 15px;
+}
+.uppercase {
+    text-transform: uppercase;
+}
+.border {
+    border-style: dashed;
+}
