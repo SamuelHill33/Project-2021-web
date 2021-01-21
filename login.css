@@ -26,13 +26,13 @@ h2 {
 }
 p {
     font-size: 17px;
-    font-family: "Courier New";
+    font-family: "Courier New", "monospace";
 }
 ol {
     font-size: 17px;
     line-height: 25px;
     list-style-type: circle;
-    font-family: "Courier New";
+    font-family: "Courier New", "monospace";
 }
 button {
     width: 188px;
