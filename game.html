@@ -7,20 +7,32 @@
 </head>
 <body>
 <div id="output">...</div> <br>
-<div>
-    <label id="roundNum">Round Number...</label> <br> <br>
-    <label id="player1CardCol">Card Colour 1...</label>
-    <label id="player1CardNum">Card Number 1...</label> <br>
-    <label id="player2CardCol">Card Colour 2...</label>
-    <label id="player2CardNum">Card Number 2...</label> <br> <br>
-    <button onclick="nextCard()" id="player1btn">Player 1 Next Card</button>
-    <button onclick="nextCard()" id="player2btn">Player 2 Next Card</button>
-    <br> <br>
-    <label id="winlbl">who won?</label>
+<div class="flex-container">
+    <div class="player1 flex">
+        <h1>Player 1</h1>
+        <div class="player1Card flex" id="card1">?</div>
+        <h2>Wins: <label id="player1WinLbl">0</label></h2>
+    </div>
 
+    <div class="centre flex">
+        <h1 id="winMsg">Start Game!</h1>
+        <div class="row flex">
+            <button onclick="nextCard()" id="player1btn">Player 1</button>
+            <button onclick="nextCard()" id="player2btn">Player 2</button>
+        </div> <br>
+        <div class="deck">
+            <img src="multicard-web.png" alt="image of deck of cards">
+            <label id="cycleNum">?</label>
+        </div>
+        <h2>Deck: <label id="deckNum">30</label></h2>
+    </div>
 
+    <div class="player2 flex">
+        <h1>Player 2</h1>
+        <div class="player2Card flex" id="card2">?</div>
+        <h2>Wins: <label id="player2WinLbl">0</label></h2>
+    </div>
 </div>
-
 <script src="game.js"></script>
 </body>
 </html>
