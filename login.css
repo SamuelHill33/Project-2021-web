@@ -39,16 +39,18 @@ button {
     height: 40px;
 }
 img {
-    width: 150px;
+    width: 170px;
     padding-bottom: 15px;
 }
 .cardRules, .cardRulesLabel {
-    width: 99.5%;
-    text-align: center;
+    width: 96%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 17px;
+    text-align: center;
+}
+.cardRulesLabel > label {
+    width: 190px;
 }
 .formLabel {
     font-size: 20px;
