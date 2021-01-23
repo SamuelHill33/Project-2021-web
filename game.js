@@ -1,6 +1,8 @@
 const colours = ["red", "black", "yellow"];
 const player1btn = document.getElementById("player1btn");
 const player2btn = document.getElementById("player2btn");
+const timer = setInterval(cyclingDeckNumber, 50);
+const cycleArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 let deck = new Array(29);
 let rand;
 let i;
@@ -11,29 +13,25 @@ let player2CardCol;
 let split;
 let player1Wins = 0;
 let player2Wins = 0;
-let roundNum = 0;
+let deckNum = 30;
+let cycle = 0;
 
 function nextCard() {
     split = deck[i].split(" "); // takes first card in deck and splits it deriving its number and colour
 
     if (i % 2 === 0 || undefined) { // if player 1's turn, send card data to player 1
-        document.getElementById("player1CardNum").innerHTML = "Card Number 1";
-        document.getElementById("player2CardNum").innerHTML = "Card Number 2";
-        document.getElementById("player1CardCol").innerHTML = "Card Colour 1";
-        document.getElementById("player2CardCol").innerHTML = "Card Colour 2";
+        document.getElementById("card1").style.color = '#000000'; // resets card number to black
         player1CardNum = split[1]; // make variable equal selected card number
         player1CardCol = split[0]; // make variable equal selected card colour
-        document.getElementById("player1CardNum").innerHTML = player1CardNum; // send card number to html
+        document.getElementById("card1").innerHTML = player1CardNum; // send card number to html
 
         if (player1CardCol === "red") { // determines what data to send to html
-            // document.getElementById("player1CardRed").visible = true;
-            document.getElementById("player1CardCol").innerHTML = "red";
+            document.getElementById("card1").style.backgroundColor = '#ff3737';
         } else if (player1CardCol === "yellow") {
-            // document.getElementById("player1CardYellow").visible = true;
-            document.getElementById("player1CardCol").innerHTML = "yellow";
+            document.getElementById("card1").style.backgroundColor = '#fed428';
         } else if (player1CardCol === "black") {
-            // document.getElementById("player1CardBlack").visible = true;
-            document.getElementById("player1CardCol").innerHTML = "black";
+            document.getElementById("card1").style.backgroundColor = '#202020';
+            document.getElementById("card1").style.color = '#ffffff';
         } else {
             alert("error - player 2 card colour not equal to either 3 colours"); // error message
         }
@@ -42,19 +40,18 @@ function nextCard() {
         player1btn.disabled = true;
         i++;
     } else if (i % 2 === 1) { // if player 2's turn, send card data to player 2 --- same as code for player 1 but for player 2
+        document.getElementById("card2").style.color = '#000000';
         player2CardNum = split[1];
         player2CardCol = split[0];
-        document.getElementById("player2CardNum").innerHTML = player2CardNum;
+        document.getElementById("card2").innerHTML = player2CardNum;
 
         if (player2CardCol === "red") {
-            // document.getElementById("player2CardRed").visible = true;
-            document.getElementById("player2CardCol").innerHTML = "red";
+            document.getElementById("card2").style.backgroundColor = '#ff3737';
         } else if (player2CardCol === "yellow") {
-            // document.getElementById("player2CardYellow").visible = true;
-            document.getElementById("player2CardCol").innerHTML = "yellow";
+            document.getElementById("card2").style.backgroundColor = '#fed428';
         } else if (player2CardCol === "black") {
-            // document.getElementById("player2CardBlack").visible = true;
-            document.getElementById("player2CardCol").innerHTML = "black";
+            document.getElementById("card2").style.backgroundColor = '#202020';
+            document.getElementById("card2").style.color = '#ffffff';
         } else {
             alert("error - player 2 card colour not equal to either 3 colours");
         }
@@ -66,13 +63,14 @@ function nextCard() {
         player2btn.disabled = true;
         player1btn.disabled = false;
         i++;
-        roundNum++; // tracks round number
-        document.getElementById("roundNum").innerHTML = roundNum.toString(); // sends string form of round number to html
     } else {
         alert("error - i is not functioning correctly"); // error message
     }
 
-    if (i === 30) { // determines whether game has ended - when the end of the deck has been reached
+    deckNum--; // tracks round number
+    document.getElementById("deckNum").innerHTML = deckNum.toString(); // sends string form of round number to html
+
+    if (deckNum === 0) { // determines whether game has ended - when the end of the deck has been reached
         if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most wining rounds
             alert("Player 1 wins with " + player1Wins + " wins!");
         } else if (player2Wins > player1Wins) {
@@ -124,12 +122,23 @@ function numWinCheck() { // checks which players card number wins --- only calle
 
 function player1Win() {
     player1Wins++; // increments players win count
-    document.getElementById("winlbl").innerHTML = "Player 1 wins!"; // sends data to which player has won the round to html
+    document.getElementById("player1WinLbl").innerHTML = player1Wins.toString();
+    document.getElementById("winMsg").innerHTML = "Player 1 wins!";
+
 }
 
 function player2Win() { // same as player1Win function but for player 2
     player2Wins++;
-    document.getElementById("winlbl").innerHTML = "Player 2 wins!";
+    document.getElementById("player2WinLbl").innerHTML = player2Wins.toString();
+    document.getElementById("winMsg").innerHTML = "Player 2 wins!";
+}
+
+function cyclingDeckNumber() {
+    document.getElementById("cycleNum").innerHTML = cycleArr[cycle];
+    cycle++;
+    if (cycle === 10) {
+        cycle = 0;
+    }
 }
 
 for (i = 0; i < 3; i++) { // for loop which designates the colour of the cards
