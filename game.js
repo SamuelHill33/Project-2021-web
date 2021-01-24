@@ -4,8 +4,12 @@ const player2btn = document.getElementById("player2btn");
 const timer = setInterval(cyclingDeckNumber, 50);
 const cycleArr = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 let deck = new Array(29);
+let player1Deck = new Array(29);
+let player2Deck = new Array(29);
 let rand;
 let i;
+let j = 0; // for player1 win array
+let k = 0; // for player2 win array
 let player1CardNum;
 let player2CardNum;
 let player1CardCol;
@@ -15,9 +19,11 @@ let player1Wins = 0;
 let player2Wins = 0;
 let deckNum = 30;
 let cycle = 0;
+let temp;
 
 function nextCard() {
     split = deck[i].split(" "); // takes first card in deck and splits it deriving its number and colour
+    document.getElementById("output").innerHTML = i;
 
     if (i % 2 === 0 || undefined) { // if player 1's turn, send card data to player 1
         document.getElementById("card1").style.color = '#000000'; // resets card number to black
@@ -36,6 +42,7 @@ function nextCard() {
             alert("error - player 2 card colour not equal to either 3 colours"); // error message
         }
 
+        temp = deck[i];
         player2btn.disabled = false; // disable buttons to disallow player from pushing buttons twice
         player1btn.disabled = true;
         i++;
@@ -69,18 +76,8 @@ function nextCard() {
 
     deckNum--; // tracks round number
     document.getElementById("deckNum").innerHTML = deckNum.toString(); // sends string form of round number to html
-
     if (deckNum === 0) { // determines whether game has ended - when the end of the deck has been reached
-        if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most wining rounds
-            alert("Player 1 wins with " + player1Wins + " wins!");
-        } else if (player2Wins > player1Wins) {
-            alert("Player 2 wins with " + player2Wins + " wins!");
-        } else {
-            alert("player 1 wins: " + player1Wins + " --- player 2 wins: " + player2Wins); // output wins in case of error
-        }
-
-        player1btn.disabled = true;
-        player2btn.disabled = true;
+        overallWin();
     }
 }
 
@@ -121,16 +118,67 @@ function numWinCheck() { // checks which players card number wins --- only calle
 }
 
 function player1Win() {
+    player1Deck[j+1] = deck[i];
+    player1Deck[j] = temp;
     player1Wins++; // increments players win count
+    j = j + 2;
     document.getElementById("player1WinLbl").innerHTML = player1Wins.toString();
     document.getElementById("winMsg").innerHTML = "Player 1 wins!";
-
 }
 
 function player2Win() { // same as player1Win function but for player 2
+    player2Deck[k+1] = deck[i];
+    player2Deck[k] = temp;
     player2Wins++;
+    k = k + 2;
     document.getElementById("player2WinLbl").innerHTML = player2Wins.toString();
     document.getElementById("winMsg").innerHTML = "Player 2 wins!";
+}
+
+function overallWin() {
+    i = 0;
+    document.getElementById("visible").hidden = false;
+
+    if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most wining rounds
+        for (i = 0; i < player1Wins * 2; i++) {
+            split = player1Deck[i].split(" ");
+            cardColConverter();
+            document.getElementById("gridCard" + i).innerHTML = split[1];
+        }
+    } else if (player2Wins > player1Wins) {
+        for (i = 0; i < player2Wins * 2; i++) {
+            split = player2Deck[i].split(" ");
+            cardColConverter();
+            document.getElementById("gridCard" + i).innerHTML = split[1];
+        }
+    } else {
+        alert("player 1 wins: " + player1Wins + " --- player 2 wins: " + player2Wins); // output wins in case of error
+    }
+
+    if (document.getElementById("gridCard17").innerHTML === "") {
+        document.getElementById("pair1").style.display = 'none';
+        document.getElementById("pair2").style.display = 'none';
+        document.getElementById("pair3").style.display = 'none';
+    } else if (document.getElementById("gridCard18").innerHTML === "") {
+        document.getElementById("pair2").style.display = 'none';
+        document.getElementById("pair3").style.display = 'none';
+    } else {
+        document.getElementById("pair3").style.display = 'none';
+    }
+
+    player1btn.disabled = true;
+    player2btn.disabled = true;
+}
+
+function cardColConverter() {
+    if (split[0] === "red") {
+        document.getElementById("gridCard" + i).style.backgroundColor = '#ff3737';
+    } else if (split[0] === "yellow") {
+        document.getElementById("gridCard" + i).style.backgroundColor = '#fed428';
+    } else if (split[0] === "black") {
+        document.getElementById("gridCard" + i).style.backgroundColor = '#202020';
+        document.getElementById("gridCard" + i).style.color = '#ffffff';
+    }
 }
 
 function cyclingDeckNumber() {
@@ -157,4 +205,5 @@ for (i = 0; i < 30; i++) { // for loop where the cards are shuffled 30 times
 }
 
 player2btn.disabled = true; // disables player 2 button so player one has to go first at beginning of round
+document.getElementById("visible").hidden = true;
 i = 0;
