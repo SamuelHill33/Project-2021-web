@@ -21,6 +21,23 @@ let deckNum = 30;
 let cycle = 0;
 let temp;
 
+function deckShuffle() {
+    for (i = 0; i < 3; i++) { // for loop which designates the colour of the cards
+        for (i = 0; i < 10; i++) { // for loop where the cards are designated a number
+            deck[i] = colours[0] + " " + (i+1); // creates 10 red cards
+            deck[i+10] = colours[1] + " " + (i+1); // creates 10 black cards
+            deck[i+20] = colours[2] + " " + (i+1); // creates 10 yellow cards
+        }
+    }
+
+    for (i = 0; i < 30; i++) { // for loop where the cards are shuffled 30 times
+        rand = Math.floor(Math.random() * 29); // random number is created between 0 and 29
+        let temp = deck[i];
+        deck[i] = deck[rand]; // takes a random card in the deck and replaces that card's position with the selected card
+        deck[rand] = temp;
+    }
+}
+
 function nextCard() {
     split = deck[i].split(" "); // takes first card in deck and splits it deriving its number and colour
     document.getElementById("output").innerHTML = i;
@@ -136,19 +153,18 @@ function player2Win() { // same as player1Win function but for player 2
 }
 
 function overallWin() {
-    i = 0;
-    document.getElementById("visible").hidden = false;
+    document.getElementById("winningCardsHeader").hidden = false;
 
     if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most wining rounds
         for (i = 0; i < player1Wins * 2; i++) {
             split = player1Deck[i].split(" ");
-            cardColConverter();
+            colConverter();
             document.getElementById("gridCard" + i).innerHTML = split[1];
         }
     } else if (player2Wins > player1Wins) {
         for (i = 0; i < player2Wins * 2; i++) {
             split = player2Deck[i].split(" ");
-            cardColConverter();
+            colConverter();
             document.getElementById("gridCard" + i).innerHTML = split[1];
         }
     } else {
@@ -170,7 +186,7 @@ function overallWin() {
     player2btn.disabled = true;
 }
 
-function cardColConverter() {
+function colConverter() {
     if (split[0] === "red") {
         document.getElementById("gridCard" + i).style.backgroundColor = '#ff3737';
     } else if (split[0] === "yellow") {
@@ -189,21 +205,7 @@ function cyclingDeckNumber() {
     }
 }
 
-for (i = 0; i < 3; i++) { // for loop which designates the colour of the cards
-    for (i = 0; i < 10; i++) { // for loop where the cards are designated a number
-        deck[i] = colours[0] + " " + (i+1); // creates 10 red cards
-        deck[i+10] = colours[1] + " " + (i+1); // creates 10 black cards
-        deck[i+20] = colours[2] + " " + (i+1); // creates 10 yellow cards
-    }
-}
-
-for (i = 0; i < 30; i++) { // for loop where the cards are shuffled 30 times
-    rand = Math.floor(Math.random() * 29); // random number is created between 0 and 29
-    let temp = deck[i];
-    deck[i] = deck[rand]; // takes a random card in the deck and replaces that card's position with the selected card
-    deck[rand] = temp;
-}
-
+deckShuffle();
 player2btn.disabled = true; // disables player 2 button so player one has to go first at beginning of round
-document.getElementById("visible").hidden = true;
+document.getElementById("winningCardsHeader").hidden = true;
 i = 0;
