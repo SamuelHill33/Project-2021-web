@@ -7,6 +7,7 @@
 </head>
 <body>
 <div id="output">...</div> <br>
+
 <div class="flex-container">
     <div class="player1 flex">
         <h1>Player 1</h1>
@@ -25,6 +26,16 @@
             <label id="cycleNum">?</label>
         </div>
         <h2>Deck: <label id="deckNum">30</label></h2>
+        <div>
+            <h2 class="leaderboardH2">Leaderboard</h2>
+            <ol class="leaderboard">
+                <li>---</li>
+                <li>---</li>
+                <li>---</li>
+                <li>---</li>
+                <li>---</li>
+            </ol>
+        </div>
     </div>
 
     <div class="player2 flex">
@@ -33,6 +44,59 @@
         <h2>Wins: <label id="player2WinLbl">0</label></h2>
     </div>
 </div>
+
+<br>
+
+<div class="flex">
+    <h1 id="visible">Winning Players Cards:</h1> <br>
+    <div class="winnersCards" id="winners-cards-grid">
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard0"></div>
+            <div class="grid-elements flex" id="gridCard1"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard2"></div>
+            <div class="grid-elements flex" id="gridCard3"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard4"></div>
+            <div class="grid-elements flex" id="gridCard5"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard6"></div>
+            <div class="grid-elements flex" id="gridCard7"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard8"></div>
+            <div class="grid-elements flex" id="gridCard9"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard10"></div>
+            <div class="grid-elements flex" id="gridCard11"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard12"></div>
+            <div class="grid-elements flex" id="gridCard13"></div>
+        </div>
+        <div class="flex row pair-container">
+            <div class="grid-elements flex" id="gridCard14"></div>
+            <div class="grid-elements flex" id="gridCard15"></div>
+        </div>
+        <div class="flex row pair-container" id="pair1">
+            <div class="grid-elements flex" id="gridCard16"></div>
+            <div class="grid-elements flex" id="gridCard17"></div>
+        </div>
+        <div class="flex row pair-container" id="pair2">
+            <div class="grid-elements flex" id="gridCard18"></div>
+            <div class="grid-elements flex" id="gridCard19"></div>
+        </div>
+        <div class="flex row pair-container" id="pair3">
+            <div class="grid-elements flex" id="gridCard20"></div>
+            <div class="grid-elements flex" id="gridCard21"></div>
+        </div>
+    </div>
+</div>
+
 <script src="game.js"></script>
 </body>
 </html>
