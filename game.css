@@ -1,5 +1,5 @@
 div {
-
+    /* border-style: solid; */
 }
 button {
     width: 100px;
@@ -44,6 +44,25 @@ img {
     text-align: center;
     color: white;
     font-size: 50px;
+}
+.leaderboard {
+    font-size: 18px;
+}
+.leaderboardH2 {
+    margin: 5px;
+}
+.winnersCards {
+    display: flex;
+    justify-content: space-around;
+    grid-gap: 30px 30px;
+}
+.pair-container {
+    grid-column-gap: 5px;
+}
+.grid-elements {
+    width: 35px;
+    height: 60px;
+    border-radius: 10%;
 }
 #cycleNum {
     position: absolute;
