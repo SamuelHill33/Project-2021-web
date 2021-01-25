@@ -12,14 +12,15 @@
     <div class="player1 flex">
         <h1>Player 1</h1>
         <div class="player1Card flex" id="card1">?</div>
-        <h2>Wins: <label id="player1WinLbl">0</label></h2>
+        <h2>Cards: <label id="player1-cards">0</label></h2>
+        <h2>Record: <label id="player1-wins">0</label></h2>
     </div>
 
     <div class="centre flex">
-        <h1 id="winMsg">Start Game!</h1>
+        <h2 id="winMsg">Start Game!</h2>
         <div class="row flex">
-            <button onclick="nextCard()" id="player1btn">Player 1</button>
-            <button onclick="nextCard()" id="player2btn">Player 2</button>
+            <button onclick="player1NextCard()" id="player1btn">Player 1</button>
+            <button onclick="player2NextCard()" id="player2btn">Player 2</button>
         </div> <br>
         <div class="deck">
             <img src="multicard-web.png" alt="image of deck of cards">
@@ -41,7 +42,8 @@
     <div class="player2 flex">
         <h1>Player 2</h1>
         <div class="player2Card flex" id="card2">?</div>
-        <h2>Wins: <label id="player2WinLbl">0</label></h2>
+        <h2>Cards: <label id="player2-cards">0</label></h2>
+        <h2>Record: <label id="player2-wins">0</label></h2>
     </div>
 </div>
 
