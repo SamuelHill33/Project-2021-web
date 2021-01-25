@@ -7,6 +7,17 @@ button {
 img {
     width: 150px
 }
+h1 {
+    font-size: 45px;
+    font-family: monospace;
+}
+h2 {
+    font-size: 25px;
+    font-family: monospace;
+}
+ol {
+    font-family: "Courier New", "monospace";
+}
 .flex-container {
     width: 100%;
     display: flex;
@@ -69,4 +80,7 @@ img {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+#winMsg {
+    text-decoration-style: solid;
 }
