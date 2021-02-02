@@ -120,7 +120,7 @@ function numWinCheck() { // checks which players card number wins --- only calle
 }
 
 function player1Win() {
-    player1Deck[j+1] = deck[i];
+    player1Deck[j+1] = deck[i]; // adds winning cards to players winning cards deck
     player1Deck[j] = temp;
     player1Wins++; // increments players win count
     j = j + 2;
@@ -211,3 +211,7 @@ for (i = 0; i < 11; i++) {
     document.getElementsByClassName("pair-container")[i].style.display = 'none';
 }
 i = 0; // resets i to 0 for round count when game starts
+
+for (i = 0; i < 30; i++) {
+    document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + '<br>' + deck[i];
+}
