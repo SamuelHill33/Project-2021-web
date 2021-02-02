@@ -2,13 +2,11 @@ let username1;
 let password1;
 let username2;
 let password2;
-let check = false;
 
 function validate1() { // function to validate first account
     username1 = document.getElementById("username1").value;
     password1 = document.getElementById("password1").value;
     if (username1 === "Saam" && password1 === "skilled") { // checks if inputs are equal to data specified
-        check = true;
         enableDisable();
     } else {
         alert("wrong username or password");
