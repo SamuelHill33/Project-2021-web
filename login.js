@@ -17,7 +17,7 @@ function validate2() { // function to validate second account --- same as functi
     username2 = document.getElementById("username2").value;
     password2 = document.getElementById("password2").value;
     if (username2 === "William" && password2 === "thick") {
-        window.location.href = "http://localhost:63342/Project-2021-web/game.html?"; // changes html page to that of the game
+        window.location.href = "https://samuelhill33.github.io/Project-2021-web/game.html"; // changes html page to that of the game
     } else {
         alert("wrong username or password");
     }
