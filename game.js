@@ -101,7 +101,7 @@ function colWinCheck() { // checks which players card colour wins
     }
 
     if (player2CardCol === "black") {
-        if (player1CardCol === "red") {
+        if (player1CardCol === "red") { // red beats black
             player1Win();
         } else if (player1CardCol === "yellow") {
             player2Win();
@@ -141,23 +141,24 @@ function overallWin() {
     document.getElementById("winningCardsHeader").hidden = false;
 
     if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most wining rounds
-        for (i = 0; i < player1Wins * 2; i++) {
+        for (i = 0; i < player1Wins * 2; i++) { // for loop designated to copying winning players winning cards to visual cards to be shown below game window
             split = player1Deck[i].split(" ");
             colConverter();
             document.getElementById("gridCard" + i).innerHTML = split[1];
         }
 
         for (i = 0; i < player1Wins; i++) {
-            document.getElementsByClassName("pair-container")[i].style.display = 'flex';
+            document.getElementsByClassName("pair-container")[i].style.display = 'flex'; // revealing players winning cards
         }
 
         document.getElementById("winningCardsHeader").innerHTML = "Player 1's Cards:";
-    } else if (player2Wins > player1Wins) {
+    } else if (player2Wins > player1Wins) { // same as first if statement but for player 2 winning
         for (i = 0; i < player2Wins * 2; i++) {
             split = player2Deck[i].split(" ");
             colConverter();
             document.getElementById("gridCard" + i).innerHTML = split[1];
         }
+
         for (i = 0; i < player2Wins; i++) {
             document.getElementsByClassName("pair-container")[i].style.display = 'flex';
         }
@@ -208,10 +209,10 @@ for (i = 0; i < 30; i++) { // for loop where the cards are shuffled 30 times
 player2btn.disabled = true; // disables player 2 button so player one has to go first at beginning of round
 document.getElementById("winningCardsHeader").hidden = true;
 for (i = 0; i < 11; i++) {
-    document.getElementsByClassName("pair-container")[i].style.display = 'none';
+    document.getElementsByClassName("pair-container")[i].style.display = 'none'; // hides all card containers at start of game
 }
 i = 0; // resets i to 0 for round count when game starts
 
-for (i = 0; i < 30; i++) {
-    document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + '<br>' + deck[i];
-}
+// for (i = 0; i < 30; i++) {
+    // document.getElementById("output").innerHTML = document.getElementById("output").innerHTML + '<br>' + deck[i];
+// }
