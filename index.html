@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project-2021-login</title>
+    <link rel="stylesheet" type="text/css" href="login.css">
+</head>
+<body>
+<div id="output">...</div>
+<div class="flex-container">
+    <div class="desc">
+        <h1>Welcome to Epic Card Game!</h1>
+        <p>This 2 player card game will entertain you for hours!
+            Enjoy a game where your lack of skills do not affect your chances of winning.
+            Thoroughly look forward to beating your talented friends at a game they have no control over...</p>
+        <h2>Rules:</h2>
+        <ol>
+            <li>Player 1 takes the top card from the deck.</li>
+            <li>Player 2 takes the next card from the deck.</li>
+            <li>If both players have a card of the same colour, the player with the highest number wins.</li>
+            <li>If both players have cards with different colours, the player with the winning colour wins.</li>
+            <li>The winner of each round keeps both cards.</li>
+            <li>The players keep playing until there are no cards left in the deck.</li>
+        </ol>
+
+        <div class="cardRules">
+            <img src="redbeatsblack.jpg" alt="red cards beat black cards">
+            <img src="yellowbeatsred.jpg" alt="yellow cards beat red cards">
+            <img src="blackbeatsyellow.jpg" alt="black cards beat yellow cards">
+        </div>
+
+        <div class="cardRulesLabel uppercase">
+            <label>red beats black</label>
+            <label>yellow beats red</label>
+            <label>black beats yellow</label>
+        </div>
+    </div>
+
+    <div class="form">
+        <h1 class="uppercase">Sign in</h1>
+        <h2>Player 1</h2>
+        <form>
+            <label class="formLabel">Username: </label> <br>
+            <input type="text" id="username1"> <br>
+            <label class="formLabel">Password:</label> <br>
+            <input type="password" id="password1"> <br>
+            <button id="player1btn" onclick="validate1()">Next</button>
+        </form>
+
+        <h2>Player 2</h2>
+        <form>
+            <label class="formLabel">Username:</label> <br>
+            <input type="text" id="username2"> <br>
+            <label class="formLabel">Password:</label> <br>
+            <input type="password" id="password2"> <br>
+            <button id="player2btn" onclick="validate2()">Next</button>
+        </form>
+    </div>
+</div>
+<pre id="file-contents"></pre>
+<script src="login.js"></script>
+</body>
+</html>
