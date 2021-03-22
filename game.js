@@ -140,15 +140,15 @@ function player2Win() { // same as player1Win function but for player 2
 function overallWin() {
     document.getElementById("winningCardsHeader").hidden = false;
 
-    if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most wining rounds
-        for (i = 0; i < player1Wins * 2; i++) { // for loop designated to copying winning players winning cards to visual cards to be shown below game window
+    if (player1Wins > player2Wins) { // compares over all player wins and judges final victor based on who had the most winning rounds
+        for (i = 0; i < player1Wins * 2; i++) { // for loop designated to copying winning players cards to visual cards to be shown below game window
             split = player1Deck[i].split(" ");
             colConverter();
             document.getElementById("gridCard" + i).innerHTML = split[1];
         }
 
         for (i = 0; i < player1Wins; i++) {
-            document.getElementsByClassName("pair-container")[i].style.display = 'flex'; // revealing players winning cards
+            document.getElementsByClassName("pair-container")[i].style.display = 'flex'; // revealing winning players cards
         }
 
         document.getElementById("winningCardsHeader").innerHTML = "Player 1's Cards:";
