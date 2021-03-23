@@ -17,7 +17,7 @@ function validate2() { // function to validate second account --- same as functi
     username2 = document.getElementById("username2").value;
     password2 = document.getElementById("password2").value;
     if (username2 === "William" && password2 === "thick") {
-        window.location.href = "game.html"; // changes html page to that of the game
+        window.location.href = "game.html"; // changes html page to that of the game... or atleast should
     } else {
         alert("wrong username or password");
     }
